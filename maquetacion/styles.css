@@ -1,0 +1,563 @@
+/* ==========================================================================
+   CSS VARIABLES - Sistema de Diseño Institucional y Moderno
+   ========================================================================== */
+:root {
+    --primary-color: #1e3a8a;      /* Azul institucional profundo */
+    --primary-light: #2563eb;     /* Azul de interacción o enfoque */
+    --background-app: #f8fafc;     /* Fondo de la interfaz gris azulado ultra limpio */
+    --background-card: #ffffff;    /* Fondo de contenedores y tarjetas */
+    --text-main: #1e293b;          /* Texto principal de alta legibilidad */
+    --text-muted: #64748b;         /* Texto secundario y descriptivo */
+    --border-color: #e2e8f0;       /* Bordes sutiles y elegantes */
+    --success: #10b981;            /* Éxito / Aprobado */
+    --warning: #f59e0b;            /* Alerta / Regular */
+    --danger: #ef4444;             /* Error / Libre / Desaprobado */
+    --sidebar-width: 260px;
+    --radius: 10px;
+    --transition: all 0.25s ease-in-out;
+}
+
+/* ==========================================================================
+   RESET & ESTILOS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-app);
+    color: var(--text-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Clases de Utilidad */
+.hidden { display: none !important; }
+.row-space { display: flex; justify-content: space-between; align-items: center; }
+
+/* ==========================================================================
+   MÓDULO DE AUTENTICACIÓN (LOGIN/REGISTRO)
+   ========================================================================== */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0f172a 100%);
+    padding: 20px;
+}
+
+.auth-card {
+    background: var(--background-card);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.auth-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* Formularios de la UI */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.forgot-link {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.auth-footer a {
+    color: var(--primary-light);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   DISEÑO ESTRUCTURAL DE LA APLICACIÓN (LAYOUT)
+   ========================================================================== */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Menú Lateral de Navegación (Sidebar) */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--primary-color);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+}
+
+.sidebar-brand {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-icon {
+    background-color: var(--primary-light);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.sidebar-brand h2 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-menu {
+    flex: 1;
+    padding: 24px 16px;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 16px;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.menu-item.active {
+    background-color: var(--primary-light);
+}
+
+.sidebar-footer {
+    padding: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-logout {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-logout:hover {
+    color: var(--danger);
+}
+
+/* Componente Principal de Contenido */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Evita desbordamiento en Flexbox */
+}
+
+/* Barra Superior (Topbar) */
+.topbar {
+    height: 70px;
+    background-color: var(--background-card);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.topbar-search input {
+    width: 320px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: #f1f5f9;
+    font-size: 13px;
+}
+
+.topbar-search input:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: var(--primary-light);
+}
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-role {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.badge-admin { background-color: #fee2e2; color: #ef4444; }
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Contenedor Interior Dinámico */
+.view-container {
+    padding: 40px;
+    flex: 1;
+}
+
+.view-header {
+    margin-bottom: 32px;
+}
+
+.view-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.view-header p {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   COMPONENTES UI (TARJETAS, TABLAS, BOTONES)
+   ========================================================================== */
+.card {
+    background-color: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 24px;
+}
+
+.card-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.card-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Botones con Microinteracciones */
+.btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    background-color: #fff;
+    color: var(--text-main);
+    transition: var(--transition);
+}
+
+.btn:hover { background-color: #f1f5f9; }
+
+.btn-primary {
+    background-color: var(--primary-light);
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover { background-color: #1d4ed8; }
+
+.btn-danger {
+    background-color: transparent;
+    color: var(--danger);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger);
+    color: #fff;
+}
+
+.btn-sm { padding: 6px 12px; font-size: 12px; }
+.btn-block { width: 100%; display: block; }
+
+/* Grilla de Estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background-color: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.icon-blue { background-color: #e0f2fe; color: #0369a1; }
+.icon-green { background-color: #dcfce7; color: #15803d; }
+.icon-orange { background-color: #ffedd5; color: #c2410c; }
+.icon-purple { background-color: #f3e8ff; color: #6b21a8; }
+
+.stat-data h3 { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+.stat-number { font-size: 24px; font-weight: 700; color: var(--text-main); margin: 2px 0; }
+.stat-trend { font-size: 11px; color: var(--text-muted); }
+.trend-up { color: var(--success); font-weight: 600; }
+
+/* Tablas Institucionales Intuitivas */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table th {
+    padding: 14px 16px;
+    background-color: #f8fafc;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Badges / Etiquetas de Estado */
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-success { background-color: #dcfce7; color: #166534; }
+.badge-warning { background-color: #fef3c7; color: #92400e; }
+.badge-danger { background-color: #fee2e2; color: #991b1b; }
+
+/* Inputs dentro de tablas */
+.table-input {
+    width: 70px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.card-footer-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ==========================================================================
+   VISTAS ESPECÍFICAS
+   ========================================================================== */
+/* Cursos Card */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.course-card {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    position: relative;
+}
+
+.course-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 11px;
+    background-color: #f1f5f9;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.course-card h3 { margin-bottom: 12px; font-size: 18px; }
+.course-info { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+.course-footer { margin-top: 20px; }
+
+/* Barra de Filtros en Asistencia */
+.filter-bar {
+    display: flex;
+    gap: 20px;
+}
+.filter-bar .form-group { margin-bottom: 0; flex: 1; }
+
+/* Vista Perfil */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+}
+
+.profile-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-large {
+    width: 90px;
+    height: 90px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.grid-form .form-group { margin-bottom: 0; }
+.grid-form button { grid-column: span 2; margin-top: 10px; }
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (BREAKPOINTS)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .profile-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+    .sidebar-brand h2, .sidebar-menu span, .menu-item, .sidebar-footer {
+        font-size: 12px;
+    }
+    .sidebar-brand h2, .sidebar-footer .btn-logout { display: none; }
+    
+    .main-content { margin-left: 70px; }
+    .topbar { padding: 0 20px; }
+    .topbar-search input { width: 160px; }
+    .view-container { padding: 20px; }
+    
+    .grid-form { grid-template-columns: 1fr; }
+    .grid-form button { grid-column: span 1; }
+    .filter-bar { flex-direction: column; gap: 12px; }
+}
